@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "tabela-fipe-brasil"
+version = "0.0.1"
+description = ""
+authors = ["Luketss <lucassilluzio@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "tabela_fipe_brasil"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.101.1"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "app:main"
