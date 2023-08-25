@@ -3,7 +3,11 @@ from fastapi import FastAPI, status, HTTPException
 import requests
 import asyncio
 
+from services.client import FipeClient
+
 app = FastAPI()
+
+client = FipeClient()
 
 
 @app.get("/")
@@ -19,8 +23,9 @@ async def get_consultar_marcas():
 @app.post("/consultar-marcas")
 async def post_consultar_marcas(tipo_veiculo):
     data = {"codigoTabelaReferencia": "299", "codigoTipoVeiculo": f"{tipo_veiculo}"}
-    r = requests.post(
-        "https://veiculos.fipe.org.br/api/veiculos/ConsultarMarcas", data=data
+
+    r = client.post_request(
+        "https://veiculos.fipe.org.br/api/veiculos/ConsultarMarcas", payload=data
     )
     print(r)
     if r.status_code != status.HTTP_200_OK:
@@ -35,8 +40,8 @@ async def post_consultar_modelos(tipo_veiculo, codigo_marca):
         "codigoTipoVeiculo": f"{tipo_veiculo}",
         "codigoMarca": f"{codigo_marca}",
     }
-    r = requests.post(
-        "https://veiculos.fipe.org.br/api/veiculos/ConsultarModelos", data=data
+    r = client.post_request(
+        "https://veiculos.fipe.org.br/api/veiculos/ConsultarModelos", payload=data
     )
     print(r)
     if r.status_code != status.HTTP_200_OK:
