@@ -11,6 +11,7 @@ packages = [{include = "tabela_fipe_brasil"}]
 python = "^3.11"
 fastapi = "^0.101.1"
 requests = "^2.31.0"
+uvicorn = "^0.23.2"
 
 
 [build-system]
