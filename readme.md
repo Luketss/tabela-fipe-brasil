@@ -15,6 +15,7 @@ uvicorn main:app --reload
 
 
 Ideias:
+
     - Gerar um csv com todas as informações puxadas da api
     - Buscar por modelo e receber o código (id)
     - Buscar por marca e receber o código (id)
