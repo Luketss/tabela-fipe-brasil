@@ -8,7 +8,7 @@
 poetry install
 ```
 
-Dentro da pasta main 
+Navegue ate a pasta app dentro de /fipe e execute o seguinte comando
 ```
 uvicorn main:app --reload
 ```
